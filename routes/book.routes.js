@@ -48,7 +48,7 @@ router.post("/books/create", (req, res, next) => {
 
   Book.create(bookDetails)
     .then(bookDetails => {
-      res.send("your book was created")
+      res.redirect("/books");
     })
     .catch(err => {
       console.log("error creating new book in DB", err);
