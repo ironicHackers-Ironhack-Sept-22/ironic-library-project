@@ -16,4 +16,32 @@ router.get("/authors", (req, res, next) => {
 });
 
 
+
+//CREATE: display form
+router.get("/authors/create", (req, res, next) => {
+  res.render("authors/author-create");
+});
+
+
+
+//CREATE: process form
+router.post("/authors/create", (req, res, next) => {
+  
+  const authorDetails = {
+    name: req.body.name,
+    age: req.body.age,
+    country: req.body.country,
+  }
+
+  Author.create(authorDetails)
+    .then(() => {
+      res.redirect("/authors");
+    })
+    .catch(err => {
+      console.log("error creating new author in DB", err);
+      next(err);
+    })
+
+})
+
 module.exports = router;
