@@ -25,7 +25,7 @@ require('./config/session.config')(app);
 const capitalized = require("./utils/capitalized");
 const projectName = "library-project";
 
-app.locals.appTitle = `${capitalized(projectName)} created by IronicHackers`;
+app.locals.appTitle = `${capitalized(projectName)} made by IronicHackers`;
 
 app.use( (req, res, next) => {
     res.locals.userInSession = req.session.currentUser;
